@@ -6,27 +6,9 @@
 #############################################################
 ################		User Setup			   ##############
 ###########################################################*/
-create database dsa;
 
-create user 'owilkinson'@'localhost' identified by 'Welcome01';
-create user 'dbate'@'localhost' identified by 'Welcome01';
-create user 'dcook'@'localhost' identified by 'Welcome01';
-create user 'mmiddleton'@'localhost' identified by 'Welcome01';
-
-grant all privileges on *.* to 'owilkinson'@'localhost' with grant option;
-grant all privileges on *.* to 'dbate'@'localhost' with grant option;
-grant all privileges on *.* to 'dcook'@'localhost' with grant option;
-grant all privileges on *.* to 'mmiddleton'@'localhost' with grant option;
-
-/*###########################################################
-################		Database Setup		   ##############
-###########################################################*/
---------------------------------------------------
--- Schema dsa
--- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `dsa` DEFAULT CHARACTER SET utf8 ;
 USE `dsa` ;
---FROM HERE FOR UNI DATABASE
 -- -----------------------------------------------------
 -- Table `dsa`.`location`
 -- -----------------------------------------------------
@@ -171,18 +153,20 @@ CREATE TABLE IF NOT EXISTS `dsa`.`grapes` (
 ENGINE = InnoDB;
 
 
+
+LOAD DATA LOCAL INFILE 'wines.tab' into table wine lines terminated by '\r\n';
+LOAD DATA LOCAL INFILE 'grapes.tab' into table grapes lines terminated by '\r\n';
+LOAD DATA LOCAL INFILE 'languages.tab' into table languages lines terminated by '\r\n';
+LOAD DATA LOCAL INFILE 'location.tab' into table location lines terminated by '\r\n';
+LOAD DATA LOCAL INFILE 'regions.tab' into table regions lines terminated by '\r\n';
+LOAD DATA LOCAL INFILE 'type.tab' into table type lines terminated by '\r\n';
+LOAD DATA LOCAL INFILE 'vinyards.tab' into table vinyard lines terminated by '\r\n';
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-
-LOAD DATA LOCAL INFILE 'wines.tab' into table wine lines terminated by '\r\n';
-LOAD DATA LOCAL INFILE 'grapes.tab' into table wine lines terminated by '\r\n';
-LOAD DATA LOCAL INFILE 'languages.tab' into table wine lines terminated by '\r\n';
-LOAD DATA LOCAL INFILE 'location.tab' into table wine lines terminated by '\r\n';
-LOAD DATA LOCAL INFILE 'regions.tab' into table wine lines terminated by '\r\n';
-LOAD DATA LOCAL INFILE 'type.tab' into table wine lines terminated by '\r\n';
-LOAD DATA LOCAL INFILE 'vinyards.tab' into table wine lines terminated by '\r\n';
 
 select
 	*
