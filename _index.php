@@ -49,11 +49,11 @@ include('setup_maps.php');
 
 <!--Start of Map One -->
 	<H2> Region One </H2>
-<div id="map" style="width:100%;height:500px;float:center"></div>
+<div id="map" style="width:90%;height:500px;float:center"></div>
 
 <!--Start of Map Two -->
 	<H2> Region Two </H2>
-<div id="map2" style="width:100%;height:500px;float:center"></div>
+<div id="map2" style="width:90%;height:500px;float:center"></div>
 
 <script>
 function myMap() {
