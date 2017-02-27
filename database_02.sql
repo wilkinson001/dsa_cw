@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `dsa`.`wine` (
   `dryness_sweetness` VARCHAR(45) NOT NULL,
   `producer` VARCHAR(45) NOT NULL,
   `bottle_size` VARCHAR(45) NOT NULL,
-  `vintage` DATE NOT NULL,
+  `vintage` CHAR(4) NOT NULL,
   `vinyard` INT NOT NULL,
   PRIMARY KEY (`wine_id`),
   CONSTRAINT `fk_wine_vinyard1`
@@ -167,6 +167,7 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+update wine set name = replace(name,"'","");
 
 select
 	*
