@@ -1,0 +1,409 @@
+
+*MODULAR PROGRAMME*
+
+*COURSEWORK ASSESSMENT SPECIFICATION* 
+
+*Module Details*
+
+Module Code
+UFCFV4-30-2
+
+	
+
+Run
+16SEP/1
+
+	
+
+Module Title
+Data, Shemas & Applications
+
+Module Leader
+Prakash Chatterjee / Glyn Watkins
+
+	
+
+Module Coordinator
+
+	
+
+Module Tutors
+Steve Battle, Prakash Chatterjee, Glyn Watkins
+
+Component and Element Number
+B: CW2
+
+	
+
+Weighting: (% of the Module's assessment)
+40%
+
+Element Description
+Data modelling, integration and presentation task with group and
+individual components
+
+	
+
+24 hours
+
+*Dates*
+
+Date Issued to Students
+16/11/2016
+ 
+
+	
+
+Date to be Returned to Students
+4 working weeks after hand-in
+ 
+
+Submission Place
+Blackboard
+
+ 
+
+	
+
+Submission Date
+09/03/2017
+
+Submission Time
+2.00 pm
+
+*Deliverables*
+
+As instructed.
+ 
+ 
+ 
+ 
+ 
+
+*Module Leader Signature*
+
+
+------------------------------------------------------------------------
+
+
+    UFCFV4-30-2 Data, Schemas & Applications 2015/16
+
+
+      CourseWork Specification: Wines & Vineyards
+
+This is a group assignment with a individual component. Marks are
+allocated at 70% for the group component and 30% for the individual
+component.
+
+------------------------------------------------------------------------
+
+
+        Learning Objectives:
+
+  * Using Web based services and API's to process data;
+  * Designing, processing and generating XML files;
+  * Linking software components with function calls and HTTP GET & POST;
+  * Understanding and using HTML5, RSS and other XML vocabularies (XSLT,
+    XSD);
+  * Understanding and using JSON and JavaScript;
+  * Creating two XML meta-data files and validating them against
+    supplied Schemas;
+  * Integrating information from other scripts into a single HTML page;
+  * Planning, designing and implementing a Software Project;
+  * Experiencing team based software construction.
+
+
+        Overview:
+
+Wine (from Latin /vinum/) is an alcoholic beverage made from fermented
+grapes, generally /Vitis vinifera/ or its hybrids with /Vitis labrusca/
+or /Vitis rupestris/. Grapes ferment without the addition of sugars,
+acids, enzymes, water, or other nutrients, as yeast consumes the sugar
+in the grapes and converts it to ethanol and carbon dioxide. Different
+varieties of grapes and strains of yeasts produce different styles of
+wine. These variations result from the complex interactions between the
+biochemical development of the grape, the reactions involved in
+fermentation, the terroir (the special characteristics imparted by
+geography, geology, climate, viticultural methods and plant genetics),
+and the production process. Many countries define legal appellations
+intended to define styles and qualities of wine; these typically
+restrict the geographical origin and permitted varieties of grapes, as
+well as other aspects of wine production. [1]
+
+
+         The Application:
+
+Working in groups of three to four students, your task in this
+assignment is to build a data driven web application that makes use of
+external API's and local data storage to encourage interest in Wines,
+their Types and the Regions that produce them.
+
+Your application will show information about your chosen wines taken
+from *two different* Countries or Regions.
+
+
+        Tasks:
+
+
+          A. Group Tasks (70 marks)
+
+*1. Database Design and Implementation (16 marks):*
+
+i) *Conceptual ER model*: There is a host of data items associated with
+each wine. Design a conceptual ER model to hold data about individual
+wine and regions (name, type, alchohol, colour intensity, description,
+price, suppliers, image etc. etc.) as well as the Regions or Country
+that produce the wines (name, description, woeid, geolocation,
+population, languages, etc. etc.).
+
+Deliverable: Conceptual ER model (Entities, Attributes, Relationships)
+with sufficient attributes (at least 8 for a Wine and 8 for a Region/
+Country). (4 marks)
+
+ii) *Logical ER model*: Transform the above model resolving any
+many-to-many relationships into a low-level (relational) model showing
+all Primary and Foreign Keys as well as all attribute types with their
+ranges/lengths.
+
+Deliverable: Logical (low-level) ER Model. (8 marks)
+
+iii) *Database Implementation*: Implement & populate the database on the
+UWE/CEMS MySQL server.
+
+Deliverable: Database Schema (create table + constraints statements) +
+Data (select * from all tables). (4 marks)
+
+*2. Use and integration of external API's (20 marks):*
+
+i) *Mapping*: Use a mapping API to display (at least two) maps showing
+the Regions you have selected.
+
+Note that 6(+) Wines should be shown on each map using appropriate
+icons. MouseOver on the icons should show (some) data drawn from your
+dataset. MouseClick on icons should load another page showing details
+(photos, description etc.) of a specific Wine drawn from Wikipedia or
+other external resource or your own database.
+
+Deliverable: Maps of Regions/Countries with icons showing Wines realted
+to the selected Region/Country.(12 marks)
+
+ii) *Weather*: Use a weather API to generate a display of the current
+and forecast weather for the your selected Region or Country (a major
+city or town in the selected place - or perhaps Vinyards that produces
+that type of Grape.)
+
+Deliverable: Display current and forecast weather data. (8 marks)
+
+*3. XML Configuration File & Schema (14 marks):*
+
+i) Design & construct a XML file holding application-wide data such the
+as paths to API's used, API keys (if used), database and other
+configuration data.  (7 marks)
+
+ii) Design and construct a XML Schema (XSD) file to validate the
+configuration file. (7 marks)
+
+Deliverable: A XML configuration file and a XML schema file. (14 marks)
+
+*4. RSS feed (5 marks):*
+
+Generate a RSS feed of the dataset held in your MySQL DB.
+
+Deliverable: A working & demonstrated RSS feed. (5 marks)
+
+*5. Group metadata file Construction (5 marks):*
+
+Author a group XML metadata file that is validated against the supplied
+schema.
+
+Deliverable: A schema valid XML metadata file. (5 marks)
+
+*6. Design and Code Review/Walkthrough (10 marks):*
+
+A 10-15 minute walkthorugh of the design and coding of the application.
+Marks are allocated as part of the assessment process.
+
+
+          B. Individual Tasks (30 marks)
+
+*1. Refactor/Extend the Application (24 marks)*
+
+Each student in the group will select (*exclusively*) one of the
+following tasks. All tasks carry the same (24) marks.
+
+You will be expected to demonstrate your chosen task in the assessment
+walkthrough.
+
+  * *Design & Build a Test Framework*
+      o Use of PHPUnit <https://phpunit.de/>, JSFiddle
+        <http://jsfiddle.net/> and (possibly) other test frameworks. All
+        HTML output should be validated against the W3C Validation
+        Service. To achieve maximum marks you may also want to explore
+        the W3C's WCAG 2.0 <http://www.w3.org/WAI/intro/wcag> standards
+        (A, AA, AAA).
+
+  * *Refactor the data set using XML and XML-Schema*
+      o All data in the database refactored to XML documents using
+        consistent naming conventions (for the entities and attributes)
+        and appropriate XSD schema design for each instance document.
+        You should demonstrate that your XML is valid against these
+        schemas during your presentation (using oXygen). To achieve
+        maximum marks you might want to analyse and explore how XSLT
+        could be applied to generate the required functionality of the
+        site.
+
+  * *Build and integrate a comments widget using local data & the
+    Twitter API*
+      o User comments should be stored to the local DB and integrated
+        with Twitter. You should not only pull & display tweets using
+        the obvious hash-tags (#winename #wineregion etc.) but also pull
+        tweets that have the expression "Your Wine or Region or Grape
+        Variety" in the body of the tweet. To achieve maximum marks you
+        may also want to analyse/prototype a caching mechanism for
+        previously pulled tweets. Or even Content Analysis of the tweets.
+
+  * *Build and integrate a photo widget*
+      o Use the Flickr API <https://www.flickr.com/services/api/> or the
+        Pinterest API <https://developers.pinterest.com/> (or possibly
+        both) to grab photos relevant to your wines and regions and
+        integrate the component with the main application. To achieve
+        maximum marks you may also want to analyse/prototype a caching
+        mechanism for previously pulled images.
+
+  * *Document the code and the system*
+      o Technical documentation (code, functions, configuration,
+        database, administration etc.) is the priority here. To achieve
+        maximum marks you may also want to analyse/explore tools such as
+        PHPDocumentor <http://www.phpdoc.org/> or some of the other
+        open-source debugging/documentation tools
+        <http://www.smashingmagazine.com/2009/01/50-extremely-useful-php-tools/>.
+
+  * *Refactor the data and map it to a NoSQL database*
+      o You will need to demonstrate a working NoSQL database and
+        queries on either your UWE/CEMS web-space or on your own
+        hardware(laptop/tablet). To achieve maximum marks you will need
+        to explore how the site would make use of the data and the
+        advantages gained in holding data in this structure and format.
+
+  * *Refactor the application to a (micro) PHP framework*
+      o  A microframework is a minimalistic web application framework.
+        You can see a list of eighteen such PHP frameworks at Codecondo
+        <http://codecondo.com/minimal-web-frameworks-for-php/>. Maximum
+        marks will be achieved by demonstrating a robust implementation
+        with high quality documentation.
+
+Deliverable: A working & demonstrated widget documented in the
+appropriate section of the individual metadata file. (24 marks)
+
+*2. Implementation & Presentation (6 marks)*
+
+Marks allocated at assessment walkthrough based on the overall quality
+of the application & the individual metadata file.
+
+
+        Group working
+
+You will work in groups of three to four students and each group member
+will be responsible for at least one of the components. However, all
+group members are expected to have an understanding of the whole
+application and all members will be involved in the design of the
+configuration file at the heart of the application.
+
+*Groups are required to be formed and notified to your tutor by the 7th
+of December. Groups will be formed by students within a workshop group.*
+
+
+        Design, Implementation & Submission
+
+You should deploy your application on the UWE/CEMS web space of *one
+member* of your group. All source code should be well-formatted &
+commented and must contain attribution where external code has been used
+(you should show the start and end of someone else's work and provide
+the link to where is was obtained). Groups will lose marks if
+unattributed third party code is submitted.
+
+All students will prepare and submit two schema valid XML files
+documenting the work and application.
+
+The Schema (XSD) files for the group and individual components will be
+published at the beginning of Semester 2. Two schema valid example files
+(one for the group and another for the individual component) will also
+be made available.
+
+
+        Tutor support
+
+This coursework is seen as providing a learning experience in the tools
+& technologies used on this module. Support will be provided in workshop
+time as well as in the EspressoProgramming
+<http://www.cems.uwe.ac.uk/ep/> sessions.
+
+Tutor help can be requested for any aspect of the coursework such as the
+overall design, PHP coding problems or XML structuring. Please ask for
+assistance after a bit of a struggle with the problem rather than get stuck.
+
+Specific questions will be answered in the DSA Module Blog
+<http://dsa-module.blogspot.co.uk/> and pointed to via Blackboard. The
+blog will also be used to provide more detailed guidance in constructing
+this application.
+
+------------------------------------------------------------------------
+
+
+        Assessment Criteria and Marks Allocation
+
+
+          Group Component (70%)
+
+  * Group Walkthrough (10%)
+      o Quality of the demonstrated application;
+      o Depth of understanding shown by the group;
+      o Group shows a good group dynamic.
+
+  * Application (60%)
+      o Well designed ER models and implemented MySQL DB;
+      o Main Mapping/Weather page is complete and has the required
+        functions & is well implemented (e.g. valid HTML5);
+      o A valid RSS produced;
+      o Group meta-data file is schema valid;
+      o Overall quality of source code;
+      o Completeness of data model (no replication, valid data fields
+        and types);
+      o Design & use of a configuration file and parameters;
+      o Additional functionality beyond the basic requirements;
+      o Valid and well presented documentation.
+
+
+          Individual Component (30%)
+
+  * Individual Walkthrough (6%)
+      o Quality of the individual widget;
+      o Depth of understanding of the work done for the component.
+
+  * Individual Widget (24%)
+      o Functional widget using external data via API (i.e. not a static
+        view);
+      o Availability and quality of comments and learning shown;
+      o Availability and quality of source code;
+
+------------------------------------------------------------------------
+
+
+        Resources
+
+Wine and Grape Varieties: http://www.thewinesociety.com/grape-varieties-list
+
+List of Wine Producing Regions:
+https://en.wikipedia.org/wiki/List_of_wine-producing_regions
+
+Google Maps API: https://developers.google.com/maps/?hl=en
+
+Bing Maps API: http://www.microsoft.com/maps/choose-your-bing-maps-API.aspx
+
+Open Street Map API: http://wiki.openstreetmap.org/wiki/API_v0.6
+
+
+        References
+
+[1] Wine <https://en.wikipedia.org/wiki/Wine> - Wikipedia.
+
