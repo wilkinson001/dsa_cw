@@ -75,6 +75,7 @@ function myMap() {
 	marker.setMap(map);
 	google.maps.event.addListener(marker,'click',function() {
 		  console.log('Clicked on marker');//Change to function for on click
+		  window.open(document.URL.replace("_index2.php","info.php?name=")+php_results[0]['name']);
 	});
 	//Add mouseover and mouseout events
 	var infowindow = new google.maps.InfoWindow();
@@ -94,7 +95,8 @@ function myMap() {
 	var marker_2 = new google.maps.Marker({position:myCenter2});
 	marker_2.setMap(map2);
 	google.maps.event.addListener(marker_2,'click',function() {
-	console.log('Clicked on marker_2');//Change to function for on click
+		console.log('Clicked on marker_2');//Change to function for on click
+		window.open(document.URL.replace("_index2.php","info.php?name=")+php_results[1]['name']);
 	});
 	//Add mouseover and mouseout events
     var infowindow_2 = new google.maps.InfoWindow();
@@ -155,7 +157,8 @@ function myMap() {
 		echo "setTimeout(function(){infowindow$x.close();},150);});";
 		//add onlick event
 		echo "google.maps.event.addListener(marker$x,'click',function() {";
-		echo "console.log('Clicked on marker$x')";//Change to function for on click
+		echo "console.log('Clicked on marker$x');";//Change to function for on click
+		echo "window.open(document.URL.replace('_index2.php','info.php?name=')+'$name');";
 		echo "});";
 	}
 
@@ -164,9 +167,7 @@ function myMap() {
  
 }
 //set above sql query to javascript var for debugging
-var sql_res = <?php echo json_encode(
-	call_sql("select a.vinyard, a.name as name, region_id, coordinates, description, alcohol, dryness_sweetness, producer, bottle_size, vintage,c.name as wname from vinyard a left join location b on (a.location_id=b.location_id) left join wine c on (a.vinyard=c.vinyard)")
-); ?>;
+var sql_res = <?php echo json_encode($res); ?>;
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASXH_VuR10UOH_WmjTcYz7KNSTPIPBI5E&callback=myMap"></script>
