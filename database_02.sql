@@ -7,6 +7,10 @@
 ################		User Setup			   ##############
 ###########################################################*/
 
+
+
+-- On UWE mysql server, you need to connect using: mysql <username> --local-infile=1 -h mysql5 -u<username> -p
+
 CREATE SCHEMA IF NOT EXISTS `dsa` DEFAULT CHARACTER SET utf8 ;
 USE `dsa` ;
 -- -----------------------------------------------------
