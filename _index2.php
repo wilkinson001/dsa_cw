@@ -109,11 +109,18 @@ function myMap() {
 	});
  <?php 
 	//get data for markers
-	$res=call_sql("select a.vinyard, a.name as name, region_id, coordinates, description, alcohol, dryness_sweetness, producer, bottle_size, vintage,c.name as wname from vinyard a left join location b on (a.location_id=b.location_id) left join wine c on (a.vinyard=c.vinyard)");
+	$res=call_sql("select a.vinyard, b.name as name, region_id, coordinates, description, alcohol, dryness_sweetness, producer, bottle_size, vintage,c.name as wname from vinyard a left join location b on (a.location_id=b.location_id) left join wine c on (a.vinyard=c.vinyard)");
 	//iterate over each row returned
 	for($x=0;$x<count($res);$x++){
 		//split coordinates into lat and long
 		$co = explode(", ",$res[$x]['coordinates']);
+		$co2=str_replace(" ","",$res[$x]['coordinates']);
+		//get weather data
+		$weather_data = json_decode(file_get_contents("http://api.wunderground.com/api/d3dcc2a04d05c0ca/geolookup/q/$co2.json"),true);
+		$city = str_replace(" ","_",$weather_data['location']['city']);
+		$country = $weather_data['location']['country'];
+		$city_weather = json_decode(file_get_contents("http://api.wunderground.com/api/d3dcc2a04d05c0ca/conditions/q/$country/$city.json"),true);
+		$city_forecast = json_decode(file_get_contents("http://api.wunderground.com/api/d3dcc2a04d05c0ca/forecast/q/$country/$city.json"),true);
 		//echo javascript setting up marker
 		echo "var myCenter$x = new google.maps.LatLng($co[0],$co[1]);";
 		echo "var marker$x = new google.maps.Marker({position:myCenter$x});";
@@ -132,6 +139,24 @@ function myMap() {
 		$producer = $res[$x]['producer'];
 		$bsize = $res[$x]['bottle_size'];
 		$dry_sweet = $res[$x]['dryness_sweetness'];
+		$current_rain = $city_weather['current_observation']['precip_today_string'];
+		$current_temp = $city_weather['current_observation']['temperature_string'];
+		$current_wind = $city_weather['current_observation']['wind_string'];
+		$forecast_1 = $city_forecast['forecast']['txt_forecast']['forecastday']['1']['fcttext_metric'];
+		$forecast_1_day = $city_forecast['forecast']['txt_forecast']['forecastday']['1']['title'];
+		$forecast_2 = $city_forecast['forecast']['txt_forecast']['forecastday']['2']['fcttext_metric'];
+		$forecast_2_day = $city_forecast['forecast']['txt_forecast']['forecastday']['2']['title'];
+		$forecast_3 = $city_forecast['forecast']['txt_forecast']['forecastday']['3']['fcttext_metric'];
+		$forecast_3_day = $city_forecast['forecast']['txt_forecast']['forecastday']['3']['title'];
+		$forecast_4 = $city_forecast['forecast']['txt_forecast']['forecastday']['4']['fcttext_metric'];
+		$forecast_4_day = $city_forecast['forecast']['txt_forecast']['forecastday']['4']['title'];
+		$forecast_5 = $city_forecast['forecast']['txt_forecast']['forecastday']['5']['fcttext_metric'];
+		$forecast_5_day = $city_forecast['forecast']['txt_forecast']['forecastday']['5']['title'];
+		$forecast_6 = $city_forecast['forecast']['txt_forecast']['forecastday']['6']['fcttext_metric'];
+		$forecast_6_day = $city_forecast['forecast']['txt_forecast']['forecastday']['6']['title'];
+		$forecast_7 = $city_forecast['forecast']['txt_forecast']['forecastday']['7']['fcttext_metric'];
+		$forecast_7_day = $city_forecast['forecast']['txt_forecast']['forecastday']['7']['title'];
+		//$forecast_weather = $res[$x]['dryness_sweetness'];
 		echo "marker$x.setMap($map);";
 		//echo content of infowindow
 		echo "var contentString$x =
@@ -145,9 +170,19 @@ function myMap() {
 			'Alcohol: $alcohol%<br>'+
 			'Bottle Size: $bsize ml<br>'+
 			'Dryness/Sweetness: $dry_sweet<br>'+
+			'Todays Rainfall: $current_rain<br>'+
+			'Todays Temperature: $current_temp<br>'+
+			'Todays Wind: $current_wind<br>'+
+			'$forecast_1_day : $forecast_1<br>'+
+			'$forecast_2_day : $forecast_2<br>'+
+			'$forecast_3_day : $forecast_3<br>'+
+			'$forecast_4_day : $forecast_4<br>'+
+			'$forecast_5_day : $forecast_5<br>'+
+			'$forecast_6_day : $forecast_6<br>'+
 			'</p>'+
 			'</div>'+
 			'</div>';";
+						
 		echo "var infowindow$x = new google.maps.InfoWindow();";
 		//add mouseover and mouseout event
 		echo "google.maps.event.addListener(marker$x,'mouseover', function() {";
