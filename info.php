@@ -1,9 +1,9 @@
 <?php
 	include('sql.php');
 	$name = $_GET["name"];
-	$res=call_sql("select a.location_id, woeid, coordinates, c.* from location a inner join vinyard b on (a.location_id=b.location_id) left join wine c on (b.vinyard=c.vinyard)where a.name =  '$name'");
-	if($res=="" && isset($name)){
-		$res=call_sql("select a.location_id, woeid, coordinates, b.* from location a inner join region b on (a.location_id=b.location_id)where a.name =  '$name'");
+	$res=call_sql("select a.location_id, woeid, coordinates, c.*, group_concat(d.grape separator ', ') as grapes from location a inner join vinyard b on (a.location_id=b.location_id) left join wine c on (b.vinyard=c.vinyard) left join grapes d on (c.wine_id=d.wine_id)where a.name =  '$name'");
+	if($res[0][name]==NULL && isset($name)){
+		$res=call_sql("select a.location_id, woeid, coordinates, b.*, group_concat(c.language separator ', ') as languages from location a inner join region b on (a.location_id=b.location_id) left join languages c on (b.region_id=c.region_id) where a.name =  '$name'");
 		echo '<table style="width:70%;border: 1px solid black;>"';
 		for($i=0;$i<count($res[0]);$i++){
 			echo "<tr>";
