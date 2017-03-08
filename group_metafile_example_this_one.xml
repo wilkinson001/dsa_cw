@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group_metafile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="http://www.cems.uwe.ac.uk/~p-chatterjee/2016-17/modules/dsa/assignment/schemas/group_metafile_schema.xsd">
+    <!-- This file is an example of a valid group metadata file. 
+    Use this example file as a template and fill with your own data 
+    validating as you go along using Oxygen or some other schema aware editor -->
+
+    <!-- The following is the assignment metadata (DO NOT CHANGE) -->
+    <module id="UFCFV4-30-2" acronymn="DSA">
+        <title>Data Schemas &amp; Applications</title>
+        <year>2016-17</year>
+        <hand_in>2017-03-09</hand_in>
+        <spec_url>http://www.cems.uwe.ac.uk/~p-chatterjee/2016-17/modules/dsa/assignment/</spec_url>
+    </module>
+    <!-- end of metadata section -->
+
+    <!-- Group Section -->
+    <group id="W">
+        <member id="15020729" name="David Cook"/>
+        <member id="15011200" name="Megan Middleton"/>
+        <member id="15005043" name="Ollie Wilkinson"/>
+        <member id="15010844" name="Dan Bate"/>
+        <workshop>
+            <daytime>Friday 13:00</daytime>
+            <tutor>PC</tutor>
+            <tutor>SB</tutor>
+        </workshop>
+        <!-- Each student should have contributed to one or more components -->
+        <!-- Start of Section One "Database Design and Implementation" -->
+        <component type="Database Design">
+            <contributor id="15020729"/>
+            <contributor id="15005043"/> 
+            <contributor id="15011200"/>
+            
+            <!-- the following text fields allow for between 80 and 5000 characters -->
+            <description> The first requirement of the assignment was to model the potential system's database and figure out how
+                to store the data about individual wines and regions (name, type, alchohol, colour intensity, description, price, suppliers, image etc. etc.)  
+                As how the relationship between them. Fo ou first meeting as a group we met up and went over the design.
+             </description>
+            <problems>
+                The only problems or issues which we faced with the design where that of having to modify the model depending on database implementation.
+                And on representing enumeration classes.
+                </problems>
+            <solutions> The Model was changed and the QSEE documentation was consulted on how to represent enumeration classes...........................
+                ..... </solutions>
+            <!-- integer required between 1 and 120 -->
+            <hours_effort>8</hours_effort>
+        </component> 
+        <!-- End of Section One -->
+        <!-- Start of Section Two "Use and integration of external API's" -->
+        <component type="Database Implementation">
+            <contributor id="15005043"/>
+            
+            <description> Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum
+                pretium. Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor
+                felis. ....      </description>
+            <problems> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis
+                lacinia porttitor. Pellentesque augue mauris, lobortis vel elementum quis, consequat
+                tempor felis....  Problems mapping data types to actual data. Also had to change data to remove
+                quotation marks as they broke the system. also had to rename fields and keys from models.
+            </problems>
+            <solutions> Integer dictum diam id ligula aliquet sed dapibus nibh elementum.
+                Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis..... </solutions>
+            <hours_effort>3</hours_effort>
+        </component>
+        <component type="HTML Design &amp; Markup">
+            <contributor id="15020729"/>
+            
+            <description>  A simple HTML page was created to host our javascript elements and APIs........................................................
+                ........................... </description>
+            <problems> None encounted................................................................................................ 
+            ................................</problems>
+            <solutions> Not applicable..........................................................................
+                ................................. </solutions>
+            <hours_effort>1</hours_effort>
+        </component>
+        <component type="PHP Coding">
+            <contributor id="15005043"/>
+            
+            <description> Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum
+                pretium. Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor
+                felis. .... </description>
+            <problems> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis
+                lacinia porttitor. Pellentesque augue mauris, lobortis vel elementum quis, consequat
+                tempor felis. ... </problems>
+            <solutions> Integer dictum diam id ligula aliquet sed dapibus nibh elementum.
+                Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis..... </solutions>
+            <hours_effort>14</hours_effort>
+        </component>
+        <component type="Javascript / JSON Coding">
+            <contributor id="15005043"/>
+            <contributor id="15020729"/>
+            
+            <description>                                                                              Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum
+                pretium. Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor
+                felis. .... </description>
+            <problems> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis
+                lacinia porttitor. Pellentesque augue mauris, lobortis vel elementum quis, consequat
+                tempor felis.... </problems>
+            <solutions> Integer dictum diam id ligula aliquet sed dapibus nibh elementum.
+                Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis..... </solutions>
+            <hours_effort>5</hours_effort>
+        </component>
+        <component type="CSS Design">
+            <contributor id="15011200"/>
+            
+            <description> Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum
+                pretium. Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor
+                felis. .... </description>
+            <problems> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis
+                lacinia porttitor. Pellentesque augue mauris, lobortis vel elementum quis, consequat
+                tempor felis.... </problems>
+            <solutions> Integer dictum diam id ligula aliquet sed dapibus nibh elementum.
+                Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis..... </solutions>
+            <hours_effort>2</hours_effort>
+        </component>
+        <component type="Map">
+            <contributor id="15005043"/>
+            <contributor id="15020729"/>
+            
+            <description> We used the Google map API to display two maps on our html page one under the other, showing one region each respectively.
+                The maps display several markers for vineyards in each region.
+                </description>
+            <problems> There was a problem getting a second map to display under the first as well as getting the mouse over event to work.........
+            ....................</problems>
+            <solutions> The solution to get the map was by creating a separate map_options and properly 
+                placing the div location at a different width.
+               
+                ..... </solutions>
+            <hours_effort>5</hours_effort>
+        </component>
+       <!-- End of Section Two -->
+        <!-- Dan's Section Part Three  " XML Configuration file and schemea" -->
+        <component type="XML Markup">
+            <contributor id="15010844"/>
+            
+            
+            <description> Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum
+                pretium. Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor
+                felis. .... </description>
+            <problems> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis
+                lacinia porttitor. Pellentesque augue mauris, lobortis vel elementum quis, consequat
+                tempor felis.... </problems>
+            <solutions> Integer dictum diam id ligula aliquet sed dapibus nibh elementum.
+                Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis..... </solutions>
+            <hours_effort>6</hours_effort>
+        </component>
+        <component type="XSD Design">
+            <contributor id="15010844"/>
+            
+            
+            <description> Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum
+                pretium. Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor
+                felis. .... </description>
+            <problems> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis
+                lacinia porttitor. Pellentesque augue mauris, lobortis vel elementum quis, consequat
+                tempor felis.... </problems>
+            <solutions> Integer dictum diam id ligula aliquet sed dapibus nibh elementum.
+                Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis..... </solutions>
+            <hours_effort>6</hours_effort>
+        </component>
+      <!-- End of Section Three -->
+      <!-- Section Four the "RSS FEED" is Omitted -->
+      <!-- Start of Section Five -->
+        <component type="Group Metafile Construction">
+            <contributor id="15010844"/>
+            <contributor id="15005043"/>
+            <contributor id="15020729"/>
+            <contributor id="15011200"/>
+            
+            <description> Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum
+                pretium. Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor
+                felis. .... </description>
+            <problems> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis
+                lacinia porttitor. Pellentesque augue mauris, lobortis vel elementum quis, consequat
+                tempor felis.... </problems>
+            <solutions> Integer dictum diam id ligula aliquet sed dapibus nibh elementum.
+                Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis..... </solutions>
+            <hours_effort>2</hours_effort>
+        </component>
+        <!-- End of Section Five -->     
+        <!-- Start of Section Six "Walkthrough and other"  -->         
+        <component type="Other">
+            <contributor id="15010844"/>
+            <contributor id="15005043"/>
+            <contributor id="15020729"/>
+            <contributor id="15011200"/>
+            
+            <description> Sed eu nunc ipsum, nec suscipit lectus. Quisque quis nibh at sem dictum
+                pretium. Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor
+                felis. .... </description>
+            <problems> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis
+                lacinia porttitor. Pellentesque augue mauris, lobortis vel elementum quis, consequat
+                tempor felis.... </problems>
+            <solutions> Integer dictum diam id ligula aliquet sed dapibus nibh elementum.
+                Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis..... </solutions>
+            <hours_effort>13</hours_effort>
+        </component>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </group>
+
+    <!-- This section gives a link to group components, lists the techohnolgies used and 
+        points to any number of source files. Note that the more that these links work - 
+        the higher the mark for this section. Of course - the base_url link must work!! -->
+    <application>
+        <!-- Make sure the base_url for the main application is reachable as 
+            http://www.cems.uwe.ac.uk/~a-student/dsa/assignment/ -->
+        <base_url>http://www.cems.uwe.ac.uk/~b-wayne/dsa/assignment/index.php</base_url>
+        <!-- a list of up to 8 technologies used (see schema) -->
+        <technologies>
+            <tech>php</tech>
+            <tech>html5</tech>
+            <tech>xml</tech>
+        </technologies>
+        <!-- configuration source file (should be .xml) & configuration schema file (should be .xsd) -->
+        <config_source>http://www.cems.uwe.ac.uk/~b-wayne/dsa/assignment/dsa_config.xml</config_source>
+        <config_schema>http://www.cems.uwe.ac.uk/~b-wayne/dsa/assignment/dsa_config.xsd</config_schema>
+        <!-- URL of the Data Model - could be a HTML page with an image file or a gif/png file-->
+        <dm_source>http://www.cems.uwe.ac.uk/~b-wayne/dsa/assignment/model.gif</dm_source>
+        <source_files>
+            <file>
+                <name>index.php</name>
+                <purpose>main application file</purpose>
+                <!-- source file should in a browser viewable format (e.g .phps, .xml, .txt, etc.) -->
+                <source_url>http://www.cems.uwe.ac.uk/~b-wayne/dsa/assignment/index.phps</source_url>
+            </file>
+            <file>
+                <name>dsa_utility.php</name>
+                <purpose>holds required functions</purpose>
+                <source_url>http://www.cems.uwe.ac.uk/~b-wayne/dsa/assignment/dsa_utility.phps</source_url>
+            </file>
+        </source_files>
+    </application>
+
+    <!-- something about any learning outcomes achieved and any other overall comments -->
+    <overall_comments> 
+        The group thought this assignment was simple. We knew all this stuff! 
+        Pellentesque augue mauris, lobortis vel elementum quis, consequat tempor felis.....
+    </overall_comments>
+</group_metafile>
+<!-- DSA Assignment Group Metadata File Example, 2016-17 -->
+<!-- author: prakash.chatterjee@uwe.ac.uk -->
