@@ -1,5 +1,6 @@
 <?php 
 include('sql.php');
+include('keys.php');
 //this is done so query can be changed in background, more of a proof than something actually useful
 include('setup_maps.php');
 ?>
@@ -9,7 +10,8 @@ include('setup_maps.php');
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>SDSA Assignment</title>
+	    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>DSA Assignment</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -26,35 +28,27 @@ include('setup_maps.php');
   </head>
 
 <body>
-
+<header>
 <H1>DSA Assignment</H1>
+</header>
+<p> Use and integration of external API's (20 marks): <br>
 
-  <P><B>2. Use and integration of external API's (20 marks):</B></P>
+i) Mapping: Use a mapping API to display (at least two) maps showing the Regions you have selected.<br>
 
-   <P>
-   i) Mapping: Use a mapping API to display (at least two) maps showing the Regions you have selected.
-   Note that 6(+) Wines should be shown on each map using appropriate icons. 
-   MouseOver on the icons should show (some) data drawn from your dataset. 
-   MouseClick on icons should load another page showing details (photos, description etc.) of a specific Wine drawn from Wikipedia or other external resource or your own database.
-   Deliverable: Maps of Regions/Countries with icons showing Wines realted to the selected Region/Country.(12 marks)
-   <P>
+Note that 6(+) Wines should be shown on each map using appropriate icons. MouseOver on the icons should show (some) data drawn from your dataset. MouseClick on icons should load another page showing details (photos, description etc.) of a specific Wine drawn from Wikipedia or other external resource or your own database.<br>
 
-   <P>
-   ii) Weather: Use a weather API to generate a display of the current and forecast weather for the your selected Region or Country
-   (a major city or town in the selected place - or perhaps Vinyards that produces that type of Grape.)
-   Deliverable: Display current and forecast weather data. (8 marks)
-   </P>
+Deliverable: Maps of Regions/Countries with icons showing Wines realted to the selected Region/Country.(12 marks)<br>
 
-
+ii) Weather: Use a weather API to generate a display of the current and forecast weather for the your selected Region or Country (a major city or town in the selected place - or perhaps Vinyards that produces that type of Grape.)<br> <p>
 
 
 <!--Start of Map One -->
-	<H2> Region One </H2>
-<div id="map" style="width:90%;height:500px;float:center"></div>
+	<H2> Region One - Ardenee</H2>
+<div id="map"  style="width:80%;height:500px;margin:auto;float:center"></div>
 
 <!--Start of Map Two -->
-	<H2> Region Two </H2>
-<div id="map2" style="width:90%;height:500px;float:center"></div>
+	<H2> Region Two - South Africa </H2>
+<div id="map2" style="width:80%;height:500px;margin:auto;float:center"></div>
 
 <script>
 //get results from setup_maps.php into js var
@@ -109,18 +103,18 @@ function myMap() {
 	});
  <?php 
 	//get data for markers
-	$res=call_sql("select a.vinyard, b.name as name, region_id, coordinates, description, alcohol, dryness_sweetness, producer, bottle_size, vintage,c.name as wname from vinyard a left join location b on (a.location_id=b.location_id) left join wine c on (a.vinyard=c.vinyard)");
+	$res=call_sql("select a.vinyard, b.name as name, region_id, coordinates, description, alcohol, dryness_sweetness, producer, bottle_size, vintage,c.name as wname from vinyard a left join location b on (a.location_id=b.location_id) left join wine c on (a.vinyard=c.vinyard)") ;
 	//iterate over each row returned
 	for($x=0;$x<count($res);$x++){
 		//split coordinates into lat and long
 		$co = explode(", ",$res[$x]['coordinates']);
 		$co2=str_replace(" ","",$res[$x]['coordinates']);
 		//get weather data
-		$weather_data = json_decode(file_get_contents("http://api.wunderground.com/api/d3dcc2a04d05c0ca/geolookup/q/$co2.json"),true);
+		$weather_data = json_decode(file_get_contents("http://api.wunderground.com/api/$weather_key/geolookup/q/$co2.json"),true);
 		$city = str_replace(" ","_",$weather_data['location']['city']);
 		$country = $weather_data['location']['country'];
-		$city_weather = json_decode(file_get_contents("http://api.wunderground.com/api/d3dcc2a04d05c0ca/conditions/q/$country/$city.json"),true);
-		$city_forecast = json_decode(file_get_contents("http://api.wunderground.com/api/d3dcc2a04d05c0ca/forecast/q/$country/$city.json"),true);
+		$city_weather = json_decode(file_get_contents("http://api.wunderground.com/api/$weather_key/conditions/q/$country/$city.json"),true);
+		$city_forecast = json_decode(file_get_contents("http://api.wunderground.com/api/$weather_key/forecast/q/$country/$city.json"),true);
 		//echo javascript setting up marker
 		echo "var myCenter$x = new google.maps.LatLng($co[0],$co[1]);";
 		echo "var marker$x = new google.maps.Marker({position:myCenter$x});";
@@ -131,39 +125,42 @@ function myMap() {
 		} else {
 			$map="map2";
 		}
-		$name = $res[$x]['name'];
-		$wname = $res[$x]['wname'];
-		$description = $res[$x]['description'];
-		$vintage = $res[$x]['vintage'];
-		$alcohol = $res[$x]['alcohol'];
-		$producer = $res[$x]['producer'];
-		$bsize = $res[$x]['bottle_size'];
-		$dry_sweet = $res[$x]['dryness_sweetness'];
-		$current_rain = $city_weather['current_observation']['precip_today_string'];
-		$current_temp = $city_weather['current_observation']['temperature_string'];
-		$current_wind = $city_weather['current_observation']['wind_string'];
-		$forecast_1 = $city_forecast['forecast']['txt_forecast']['forecastday']['1']['fcttext_metric'];
-		$forecast_1_day = $city_forecast['forecast']['txt_forecast']['forecastday']['1']['title'];
-		$forecast_2 = $city_forecast['forecast']['txt_forecast']['forecastday']['2']['fcttext_metric'];
-		$forecast_2_day = $city_forecast['forecast']['txt_forecast']['forecastday']['2']['title'];
-		$forecast_3 = $city_forecast['forecast']['txt_forecast']['forecastday']['3']['fcttext_metric'];
-		$forecast_3_day = $city_forecast['forecast']['txt_forecast']['forecastday']['3']['title'];
-		$forecast_4 = $city_forecast['forecast']['txt_forecast']['forecastday']['4']['fcttext_metric'];
-		$forecast_4_day = $city_forecast['forecast']['txt_forecast']['forecastday']['4']['title'];
-		$forecast_5 = $city_forecast['forecast']['txt_forecast']['forecastday']['5']['fcttext_metric'];
-		$forecast_5_day = $city_forecast['forecast']['txt_forecast']['forecastday']['5']['title'];
-		$forecast_6 = $city_forecast['forecast']['txt_forecast']['forecastday']['6']['fcttext_metric'];
-		$forecast_6_day = $city_forecast['forecast']['txt_forecast']['forecastday']['6']['title'];
-		$forecast_7 = $city_forecast['forecast']['txt_forecast']['forecastday']['7']['fcttext_metric'];
-		$forecast_7_day = $city_forecast['forecast']['txt_forecast']['forecastday']['7']['title'];
-		//$forecast_weather = $res[$x]['dryness_sweetness'];
+		
+			$name = $res[$x]['name'];
+			$wname = $res[$x]['wname'];
+			$description = $res[$x]['description'];
+			$vintage = $res[$x]['vintage'];
+			$alcohol = $res[$x]['alcohol'];
+			$producer = $res[$x]['producer']; 
+			$bsize = $res[$x]['bottle_size'];
+			$dry_sweet = $res[$x]['dryness_sweetness'];
+		if(isset($city_weather['current_observation'])){
+			$current_rain = $city_weather['current_observation']['precip_today_string'];
+			$current_temp = $city_weather['current_observation']['temperature_string'];
+			$current_wind = $city_weather['current_observation']['wind_string'];
+			$forecast_1 = $city_forecast['forecast']['txt_forecast']['forecastday']['1']['fcttext_metric'];
+			$forecast_1_day = $city_forecast['forecast']['txt_forecast']['forecastday']['1']['title'];
+			$forecast_2 = $city_forecast['forecast']['txt_forecast']['forecastday']['2']['fcttext_metric'];
+			$forecast_2_day = $city_forecast['forecast']['txt_forecast']['forecastday']['2']['title'];
+			$forecast_3 = $city_forecast['forecast']['txt_forecast']['forecastday']['3']['fcttext_metric'];
+			$forecast_3_day = $city_forecast['forecast']['txt_forecast']['forecastday']['3']['title'];
+			$forecast_4 = $city_forecast['forecast']['txt_forecast']['forecastday']['4']['fcttext_metric'];
+			$forecast_4_day = $city_forecast['forecast']['txt_forecast']['forecastday']['4']['title'];
+			$forecast_5 = $city_forecast['forecast']['txt_forecast']['forecastday']['5']['fcttext_metric'];
+			$forecast_5_day = $city_forecast['forecast']['txt_forecast']['forecastday']['5']['title'];
+			$forecast_6 = $city_forecast['forecast']['txt_forecast']['forecastday']['6']['fcttext_metric'];
+			$forecast_6_day = $city_forecast['forecast']['txt_forecast']['forecastday']['6']['title'];
+			$forecast_7 = $city_forecast['forecast']['txt_forecast']['forecastday']['7']['fcttext_metric'];
+			$forecast_7_day = $city_forecast['forecast']['txt_forecast']['forecastday']['7']['title'];
+			//$forecast_weather = $res[$x]['dryness_sweetness'];
+		}
 		echo "marker$x.setMap($map);";
 		//echo content of infowindow
 		echo "var contentString$x =
 			'<div id=\"content$x\">'+ 
 			'<h3 id = \"title$x\">$name</h3>'+
 			'<div id = \"bodycontent$x\">'+
-			'<p>$wname<br>'+
+			'<p style=\"color: black;\">$wname<br>'+
 			'Producer: $producer<br>'+
 			'$description<br>'+
 			'Vintage: $vintage<br>'+
@@ -196,24 +193,23 @@ function myMap() {
 		echo "window.open(document.URL.replace('_index2.php','info.php?name=')+'$name');";
 		echo "});";
 	}
-
 	
  ?>
  
 }
 //set above sql query to javascript var for debugging
 var sql_res = <?php echo json_encode($res); ?>;
+var weather = <?php echo json_encode($city_weather); ?>;
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASXH_VuR10UOH_WmjTcYz7KNSTPIPBI5E&callback=myMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $map_key; ?>&callback=myMap"></script>
 
 <P> 
-    Placeholder:http://biostall.com/demos/google-maps-v3-api-codeigniter-library/multiplemaps
-	AIzaSyASXH_VuR10UOH_WmjTcYz7KNSTPIPBI5E&callback=initMap">
+    Ollie Wilkinson, David Cook, Megan Middleton
 	
     </P>
 
-
+<img src="cat.gif" alt="Mountain View" style="width:25px;height:25px;">
 
 <!--
 To use this code on your website, get a free API key from Google.
