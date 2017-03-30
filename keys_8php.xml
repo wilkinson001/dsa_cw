@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="keys_8php" kind="file" language="PHP">
+    <compoundname>keys.php</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="keys_8php_1aa980cb3bc74cd33d3c820ff1788b84ec" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>$weather_key</definition>
+        <argsstring></argsstring>
+        <name>$weather_key</name>
+        <initializer>= &quot;c26c92bf9bb80e51&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>/weather_key /The current API KEY for our weather API in this case <ulink url="https://www.wunderground.com/">https://www.wunderground.com/</ulink> /Needs to replaced every now and then. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/David/Desktop/dsa_cw-master/keys.php" line="10" column="1" bodyfile="C:/Users/David/Desktop/dsa_cw-master/keys.php" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="keys_8php_1aea9d09c36a3a7df4ec51aa1b0384ca45" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>$map_key</definition>
+        <argsstring></argsstring>
+        <name>$map_key</name>
+        <initializer>= &quot;AIzaSyBo--SQRyESB_V4NjVa6h7tGyfUkd48OMg&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>/$map_key Google Map API Key </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/David/Desktop/dsa_cw-master/keys.php" line="16" column="1" bodyfile="C:/Users/David/Desktop/dsa_cw-master/keys.php" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">&lt;?php</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>@keys.php<sp/></highlight></codeline>
+<codeline lineno="3"><highlight class="comment">This<sp/>is<sp/>the<sp/>configuration<sp/>file<sp/>which<sp/>holds<sp/>our<sp/>API<sp/>keys.<sp/>Meaning<sp/>we<sp/>only<sp/>have<sp/>to<sp/>change<sp/>the<sp/>value<sp/>in<sp/>one<sp/>location<sp/>**/</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="keys_8php_1aa980cb3bc74cd33d3c820ff1788b84ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="keys_8php_1aa980cb3bc74cd33d3c820ff1788b84ec" kindref="member">$weather_key</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;c26c92bf9bb80e51&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="16" refid="keys_8php_1aea9d09c36a3a7df4ec51aa1b0384ca45" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="keys_8php_1aea9d09c36a3a7df4ec51aa1b0384ca45" kindref="member">$map_key</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;AIzaSyBo--SQRyESB_V4NjVa6h7tGyfUkd48OMg&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">?&gt;</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/David/Desktop/dsa_cw-master/keys.php"/>
+  </compounddef>
+</doxygen>
